@@ -1,0 +1,2 @@
+# stockroom
+Simple inventory backend
