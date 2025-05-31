@@ -2,6 +2,7 @@
 #define SQLITE_DATABASE_H
 
 #include "database.h"
+#include <sqlite3.h>
 
 namespace Stockroom::Database {
     class Sqlite_database : public Database {
@@ -17,6 +18,13 @@ namespace Stockroom::Database {
          * Disconnects from the database.
          */
         void disconnect() override;
+    private:
+        /**
+         * Migrates the database to the current scheme.
+         */
+        void migrate();
+
+        sqlite3* context;
     };
 
 } // namespace Stockroom::Database
